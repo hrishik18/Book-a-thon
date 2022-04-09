@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse,redirect
+from django.shortcuts import get_object_or_404, render, HttpResponse,redirect
 from numpy import dtype
 import requests
 
@@ -31,6 +31,7 @@ def display(request):
     save=[]
     for book in fetched_books:
         book_dict = {
+            "id":book['id'],
             'title': book['volumeInfo']['title'],
             'image': book['volumeInfo']['imageLinks']['thumbnail'] if 'imageLinks' in book['volumeInfo'] else "",
             'authors': ", ".join(book['volumeInfo']['authors']) if 'authors' in book['volumeInfo'] else "",
