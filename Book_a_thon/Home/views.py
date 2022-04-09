@@ -6,6 +6,4 @@ def index(request):
 def collection(request):
     return render(request,'collection.html')
 
-def display(request):
-    return render(request,'display.html')
 
