@@ -7,7 +7,6 @@ from Home import views
 urlpatterns = [
     path("", views.main, name='main'),
     path("collection/", views.collection, name='collection'),
-    path("display/", views.display, name='display'),
     path("saved/", views.addbook, name='saved'),
     path("#<slug:slug>",views.addbook,name="saved")
 ]
