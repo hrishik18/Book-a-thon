@@ -3,6 +3,8 @@ from numpy import dtype
 import requests
 
 key = "AIzaSyCo0o_fEsJK3XMoNiQe_UTr0S9i2apuLlU"
+save = []
+
 def index(request):
     return render(request,'main.html')
 
@@ -21,14 +23,12 @@ def display(request):
         return render(request, 'display.html')
         
     queries = {'q': submit, 'key': key}
-    print(queries)
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
     #print(r)
     data = r.json()
     fetched_books = data['items']
     books = []
-    save=[]
     for book in fetched_books:
         book_dict = {
             "id":book['id'],
@@ -42,8 +42,13 @@ def display(request):
         books.append(book_dict)
     return render(request, 'collection.html', {'books': books})
 
-
-    
+def addbook(request,slug):
+    print("In addbook")
+    if request.method=='POST':
+        print(slug)
+        save.append(slug)
+    print(save)
+    return render(request, 'saved.html', {'saved':slug})
 
 
 #python manage.py runserver
