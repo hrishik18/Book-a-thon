@@ -25,7 +25,8 @@
         <br>
         {% comment %} {% if book|is_saved:request.session.save %} {% endcomment %}
 
-        <form action="/#{{book.id}}" method="POST" class="btn-block">
+        <form action="{% url 'saved' book.id %}" method="POST" class="btn-block">
+        {% comment %} <form action="/#{{book.id}}" method="POST" class="btn-block"> {% endcomment %}
           {% csrf_token %}
           <input hidden type="text" name='book' value='{{book.id}}'>
           <input type="submit" class="float-right btn btn-light  form-control"

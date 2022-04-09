@@ -3,6 +3,10 @@ from numpy import dtype
 import requests
 
 key = "AIzaSyCo0o_fEsJK3XMoNiQe_UTr0S9i2apuLlU"
+save = []
+
+def index(request):
+    return render(request,'main.html')
 
 def collection(request):
     return render(request,'collection.html')
@@ -25,7 +29,6 @@ def main(request):
     data = r.json()
     fetched_books = data['items']
     books = []
-    save=[]
     for book in fetched_books:
         book_dict = {
             "id":book['id'],
@@ -39,8 +42,13 @@ def main(request):
         books.append(book_dict)
     return render(request, 'collection.html', {'books': books})
 
-
-    
+def addbook(request,slug):
+    print("In addbook")
+    if request.method=='POST':
+        print(slug)
+        save.append(slug)
+    print(save)
+    return render(request, 'saved.html', {'saved':slug})
 
 
 #python manage.py runserver
