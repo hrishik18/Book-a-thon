@@ -1,31 +1,19 @@
- {% comment %} <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  
-    <meta charset="utf-8">
-    <title>Displaying the books on search</title>
-  </head>
-  <body> {% endcomment %}
+ 
+   <!DOCTYPE html>
+<html>
+<body>
 
-    
- <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Google Books Embedded Viewer API Example</title>
-    <script type="text/javascript" src="https://www.google.com/books/jsapi.js"></script>
-    <script type="text/javascript">
-      google.books.load();
+<h2>HTML Forms</h2>
 
-      function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('ISBN:0738531367');
-      }
+<form  action="{% url 'display' %}" method="GET">
+  <label for="book_name">Enter book's name</label><br>
+  <input type="text" id="book_name" name="book_name" value="Search by book"><br>
 
-      google.books.setOnLoadCallback(initialize);
-    </script>
-  </head>
-  <body>
-    <div id="viewerCanvas" style="width: 600px; height: 500px"></div>
-  </body>
+  <label for="author_name">Enter author's name</label><br>
+  <input type="text" id="author_name" name="author_name" value="Search by author"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+</body>
 </html> 
+
+
