@@ -85,8 +85,6 @@ body {
   margin-right:40px;
 }
 
-/* For large screen more than 600 */
-
 @media screen and (min-width:600px) {
     .navbar {
         display: flex;
@@ -114,89 +112,79 @@ body {
     }
 }
 
-/* search bar section */
-
-*{
-    font-family: 'Poppins', sans-serif;
-    margin:0; padding:0;
-    box-sizing: border-box;
-    outline: none; border:none;
-    text-decoration: none;
-    text-transform: capitalize;
-    transition:all .2s linear;
-    transition:width none;
-}
-.input-group{
-    align-items: center;
-    transform: translate(40%, 7%);
-}
-html{
-    font-size: 75.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 5rem;
-    scroll-behavior: smooth;
-}
-section{
-    padding:5rem 59%;
-}
-
-.btn{
-    margin-top: 1rem;
-    display:inline-block;
-    padding:.9rem 3rem;
-    border-radius: .5rem;
-    color:#fff;
-    background:linear-gradient(#247881,#22577E);
-    font-size: 1.7rem;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-
-.home{
-    background: url(css/book_\ 2.png) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.home .row{
-    display:flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:1.5rem;
-}
-
-.home .row .content{
-    flex:1 1 42rem;
-}
-
-.home .row .books-slider{
-    flex:1 1 42rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.home .row .books-slider a img{
-    height: 25rem;
-}
-
-.home .row .books-slider a:hover img{
-    transform: scale(.9);
-}
-
-.home .row .books-slider .stand{
-    width:100%;
-    margin-top: -2rem;
-}
-
-.home .row .content h3{
-    color:var(--black);
-    font-size: 4.5rem;
-}
-
-.home .row .content p{
-    color:var(--light-color);
-    font-size: 1.4rem;
-    line-height: 2;
-    padding:1rem 0;
-}
+/* HOME */
+        * {box-sizing: border-box;}
+        .mySlides {display: none;
+        }
+        .container
+        {
+            float:right;
+            margin-right:60px;
+        }
+        .title
+        {
+            margin-top:150px;
+            /* margin-right:150px; */
+            float:right;
+            font-family: 'Questrial', sans-serif;
+            color:#ffff;
+            font-size:75px;
+            text-transform:capitalize; text-transform: uppercase;
+            /* position:relative; */
+        
+        }
+        .motto
+        {
+            margin-top:300px;
+        /* position:relative; */
+            /* float:right; */
+            font-family: 'Questrial', sans-serif;
+            color:#ffff;
+            font-size:25px;
+        
+        }
+        
+        img {vertical-align: middle;}
+        
+        /* Slideshow container */
+        .slideshow-container {
+          max-width: 600px;
+          position: absolute;
+          margin: auto;
+        
+        }
+        
+        
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        
+        .active {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }

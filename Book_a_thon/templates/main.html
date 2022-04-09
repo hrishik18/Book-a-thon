@@ -5,22 +5,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="book2.css">
 <title>Book-A-Thon</title>
-<link rel="stylesheet" href="static/navbar.css">
+<link rel="stylesheet" href="Book_a_thon\static\navbar.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
 </head>
-
-
 
 <body>
     <nav class="navbar">
       <span class="toggle-nav" id="toggle-nav">
           <i class="material-icons">menu</i>
       </span>
-      <a href="#" class="logo"><img src="css/Book.png" alt="">
+      <a href="#" class="logo"><img src="static/Book.png" alt="">
           <p>Book-A-Thon</p>
       </a>
       <ul class="main-nav" id="main-nav">
@@ -28,6 +25,58 @@
           <li><a href="/collection" id="coll" class="nav-links"><b>My Collection</b></a></li>
       </ul>
     </nav>
+        </head>
+        <body>
+        
+        <div class="slideshow-container">
+        
+        <div class="mySlides fade">
+          <img src="Book_a_thon\static\Book2.jpg" width="1300" height="800">
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="static/Book2.jpg" width="1300" height="800">
+          
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="static/Book3.jpg" width="1300" height="800">
+         
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000);
+        }
+        </script>
+        </body>
+        </html> 
+        
 
     
         <div class="input-group">
@@ -51,7 +100,6 @@
                     <a href="#"><img src="" alt=""></a>
                     <a href="#"><img src="" alt=""></a>
                 </div>
-                <img src="image/stand.png" class="stand" alt="">
             </div> 
         </div>
     </section>
