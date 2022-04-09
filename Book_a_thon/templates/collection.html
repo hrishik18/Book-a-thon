@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link 
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
   rel="stylesheet"  type='text/css'>
-    <title>Book-a-thon</title>
+    <title>Book-a-Thon</title>
     <link rel="stylesheet" href="static/dis.css">
+    <link rel="stylesheet" href="static/navbar_new.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+
+    <nav class="navbar">
+      <span class="toggle-nav" id="toggle-nav">
+          <i class="material-icons">menu</i>
+      </span>
+    <div class="logo"><img src="static/Book.png">
+            <p><b>Book-A-Thon<b></p>
+</div>
+  </class=>
+   
+      <ul class="main-nav" id="main-nav">
+          <li><a href="/" class="nav-links"><b>Home</b></a></li>
+          <li><a href="/collection" id="coll" class="nav-links"><b>My Collection   </b></a></li>
+      </ul>
+    </nav>
   </head>
   <body>
-    <ul class="grid">
+    <ul>
+      <div class="row">
       {% for book in books %}
+        <div class="column">
       <li class="card">
         <h2 class="card__title">
           <a class="card__link" href="{{ book.info }}">{{ book.title }}</a>
         </h2>
         <img
           class="card__image"
-          width="128"
-          height="190"
+          width="250"
+          height="275"
           src="{{ book.image }}"
           alt="{{ book.title }}"
         />
@@ -29,13 +52,12 @@
         {% comment %} <form action="/#{{book.id}}" method="POST" class="btn-block"> {% endcomment %}
           {% csrf_token %}
           <input hidden type="text" name='book' value='{{book.id}}'>
-          <input type="submit" class="float-right btn btn-light  form-control"
+          <input type="submit" id="add-btn" class="float-center btn btn-light  form-control"
             value="Add">
         </form>
-
       </div>
-    </div>
       {% endfor %}
+    </div>
     </ul>
   </body>
   </html>

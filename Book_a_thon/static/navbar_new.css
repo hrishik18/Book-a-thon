@@ -31,7 +31,7 @@ body {
     color: #5fa8c5;
     margin: 0 -.25rem;
     padding: 1rem;
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    transition: color .8s ease-in-out, box-shadow .8s ease-in-out;
 }
   .nav-links:hover {
     box-shadow: inset 125px 0 0 0 #54b3d6;
