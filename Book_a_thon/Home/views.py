@@ -12,17 +12,17 @@ def collection(request):
     return render(request,'collection.html')
 
 
-def display(request):
+def main(request):
     title = request.GET.get('book_name', False)
-    author = request.GET.get('author_name', False)
-    submit = author if request.GET.get(
-        'book_name', False) == "" else request.GET.get('book_name', False)
+    # submit = author if request.GET.get(
+    #     'book_name', False) == "" else request.GET.get('book_name', False)
 
-    if (title == False and author == False) or (title == "" and author == ""):
+    if (title == False) or (title == ""):
         #return redirect('/')
-        return render(request, 'display.html')
+        return render(request, 'main.html')
         
-    queries = {'q': submit, 'key': key}
+    queries = {'q': title, 'key': key}
+    print(queries)
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
     #print(r)
