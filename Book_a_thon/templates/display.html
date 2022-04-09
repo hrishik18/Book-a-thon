@@ -1,0 +1,19 @@
+ 
+   <!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form  action="{% url 'display' %}" method="GET">
+  <label for="book_name">Enter book's name</label><br>
+  <input type="text" id="book_name" name="book_name" value="Search by book"><br>
+
+  <label for="author_name">Enter author's name</label><br>
+  <input type="text" id="author_name" name="author_name" value="Search by author"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+</body>
+</html> 
+
+
