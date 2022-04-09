@@ -28,6 +28,7 @@ def display(request):
     data = r.json()
     fetched_books = data['items']
     books = []
+    save=[]
     for book in fetched_books:
         book_dict = {
             'title': book['volumeInfo']['title'],
@@ -39,6 +40,9 @@ def display(request):
         }
         books.append(book_dict)
     return render(request, 'collection.html', {'books': books})
+
+
+    
 
 
 #python manage.py runserver
