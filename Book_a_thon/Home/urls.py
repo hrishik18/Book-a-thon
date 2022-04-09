@@ -4,8 +4,7 @@ from django.urls import path, include
 from Home import views
 
 urlpatterns = [
-    path("", views.index, name='home'),
+    path("", views.main, name='main'),
     path("collection/", views.collection, name='collection'),
-    path("display/", views.display, name='display'),
-    path("saved/", views.display, name='saved')
+    path("saved/", views.main, name='saved')
 ]
