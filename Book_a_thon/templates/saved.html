@@ -2,13 +2,30 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
 <link 
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
   rel="stylesheet"  type='text/css'>
     <title>Book-a-thon</title>
     <link rel="stylesheet" href="static/dis.css">
+    <link rel="stylesheet" href="static/navbar_new.css">
+
+    <nav class="navbar">
+      <span class="toggle-nav" id="toggle-nav">
+          <i class="material-icons">menu</i>
+      </span>
+    <div class="logo"><img src="static/Book.png">
+            <p><b>Book-A-Thon<b></p>
+</div>
+      <ul class="main-nav" id="main-nav">
+          <li><a href="/" class="nav-links"><b>Home</b></a></li>
+          <li><a href="/collection" id="coll" class="nav-links"><b>My Collection   </b></a></li>
+      </ul>
+    </nav>
   </head>
   <body>
+
+     <div class="column">
     <ul class="grid">
       {% for book in books %}
       <li class="card">
@@ -25,8 +42,10 @@
         <br>
       </div>
     </div>
+  
       {% endfor %}
     </ul>
+    </div>
   </body>
   </html>
 

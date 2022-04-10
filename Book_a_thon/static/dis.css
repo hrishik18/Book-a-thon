@@ -46,6 +46,7 @@ input[type="submit"]{
     text-align: center;
     background-color: #f1f1f1;
     height:350px;
+    margin: 7px 1px 5px 1px;
   }
   li.card{
     border-width: 8px;
