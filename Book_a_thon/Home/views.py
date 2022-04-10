@@ -11,7 +11,24 @@ def index(request):
 
 
 def collection(request):
-    return render(request, 'collection.html')
+    books = []
+    for i in save:
+        r = requests.get(
+            f'https://www.googleapis.com/books/v1/volumes/{i}')
+        data = r.json()
+        saved_books = data
+        book_dict = {
+            "id": saved_books['id'],
+            'title': saved_books['volumeInfo']['title'],
+            'image': saved_books['volumeInfo']['imageLinks']['thumbnail'] if 'imageLinks' in saved_books['volumeInfo'] else "",
+            'authors': ", ".join(saved_books['volumeInfo']['authors']) if 'authors' in saved_books['volumeInfo'] else "",
+            'publisher': saved_books['volumeInfo']['publisher'] if 'publisher' in saved_books['volumeInfo'] else "",
+            'info': saved_books['volumeInfo']['infoLink'],
+            'popularity': saved_books['volumeInfo']['ratingsCount'] if 'ratingsCount' in saved_books['volumeInfo'] else 0
+        }
+        books.append(book_dict)
+
+    return render(request, 'saved.html', {'books': books})
 
 
 def main(request):
@@ -24,7 +41,6 @@ def main(request):
         return render(request, 'main.html')
 
     queries = {'q': title, 'key': key}
-    print(queries)
     r = requests.get(
         'https://www.googleapis.com/books/v1/volumes', params=queries)
     data = r.json()
@@ -45,7 +61,6 @@ def main(request):
 
 
 def addbook(request, slug):
-    print("In addbook")
     if request.method == 'POST':
         print(slug)
         save.append(slug)
@@ -55,7 +70,6 @@ def addbook(request, slug):
         r = requests.get(
             f'https://www.googleapis.com/books/v1/volumes/{i}')
         data = r.json()
-        print(data)
         saved_books = data
         book_dict = {
             "id": saved_books['id'],
@@ -67,7 +81,7 @@ def addbook(request, slug):
             'popularity': saved_books['volumeInfo']['ratingsCount'] if 'ratingsCount' in saved_books['volumeInfo'] else 0
         }
         books.append(book_dict)
-
+# return redirect to collection page with same query
     return render(request, 'saved.html', {'books': books})
 
 
